@@ -59,11 +59,12 @@
      <Compile Include="Assets\_Scripts\HealthDisplay.cs" />
      <Compile Include="Assets\_Scripts\HealthSystem.cs" />
      <Compile Include="Assets\_Scripts\MainBaseSpawner.cs" />
+     <Compile Include="Assets\_Scripts\Projectile.cs" />
      <Compile Include="Assets\_Scripts\UniversalAIScript.cs" />
      <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
      <None Include="Assets\_Textures\GroundTexturesFromGaia\_Readme.txt" />
      <None Include="Assets\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
-     <None Include="Assets\_Models\Buildings\BuildingShed\BuildingShedInfo.txt" />
+     <None Include="Assets\_Prefabs\Buildings\BuildingShed\BuildingShedInfo.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>E:/Unity/ReverseTD/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

@@ -8,11 +8,13 @@ public class MainBaseSpawner : MonoBehaviour {
     [SerializeField] GameObject fighterPrefab;
 
     public bool canISpawn = true;
+    public float firstSpawnTime = 1;
+    public float spawnInterval = 10;
 
 
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("spawnFighter", 4, 4);
+        InvokeRepeating("spawnFighter", firstSpawnTime, spawnInterval);
 	}
 	
 	// Update is called once per frame

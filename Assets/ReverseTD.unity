@@ -427,6 +427,8 @@ MonoBehaviour:
   spawnLocation: {fileID: 941070033}
   fighterPrefab: {fileID: 144924, guid: 71503cd75a8608b4a95ca54c40082bc9, type: 2}
   canISpawn: 1
+  firstSpawnTime: 5
+  spawnInterval: 10
 --- !u!4 &121492262
 Transform:
   m_ObjectHideFlags: 0
@@ -540,6 +542,8 @@ MonoBehaviour:
   spawnLocation: {fileID: 571452021}
   fighterPrefab: {fileID: 144924, guid: 71503cd75a8608b4a95ca54c40082bc9, type: 2}
   canISpawn: 1
+  firstSpawnTime: 5
+  spawnInterval: 10
 --- !u!4 &136798494
 Transform:
   m_ObjectHideFlags: 0

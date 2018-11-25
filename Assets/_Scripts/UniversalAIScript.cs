@@ -10,8 +10,10 @@ public class UniversalAIScript : MonoBehaviour {
     [SerializeField] float damagePerHit;
     [SerializeField] GameObject currentTarget;
     [SerializeField] GameObject projectilePrefab;
+    public float timeBetweenAttacks = 5;
 
     public GameObject selectedTarget;
+    public float timeToAttack = 1;
 
 
 
@@ -40,6 +42,7 @@ public class UniversalAIScript : MonoBehaviour {
 
     private bool AttackClosestTarget()
     {
+        timeToAttack -= Time.deltaTime;
         var objectsWithinRange = Physics.OverlapSphere(transform.position, attackDistance);
         foreach (var singleObject in objectsWithinRange)
         {
@@ -47,10 +50,14 @@ public class UniversalAIScript : MonoBehaviour {
             {
                 if (singleObject.gameObject.GetComponentInParent<HealthSystem>())
                 {
-                    AttackTarget(singleObject.gameObject);
+                    currentTarget = singleObject.gameObject;
                     if (GetComponent<AICharacterControl>())
                     {
-                        gameObject.GetComponent<AICharacterControl>().SetTarget(singleObject.transform);
+                        GetComponent<AICharacterControl>().SetTarget(singleObject.transform);
+                    }
+                    if (timeToAttack <= 0)
+                    {
+                        AttackTarget();
                     }
                     return true;
                 }
@@ -60,10 +67,11 @@ public class UniversalAIScript : MonoBehaviour {
         return false;
     }
 
-    private void AttackTarget(GameObject target)
+    private void AttackTarget()
     {
-        target.gameObject.GetComponent<HealthSystem>().currentHealth -= damagePerHit;
-        Debug.Log(gameObject + " is attacking " + target.gameObject);
+        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectilePrefab.GetComponent<Projectile>().SetTarget(currentTarget);
+        timeToAttack = timeBetweenAttacks;
     }
 
     private void SetTargetForPlayerUnits()
