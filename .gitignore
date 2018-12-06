@@ -1,5 +1,9 @@
 #Ignore files built by Unity
+
 *.meta
+
+Library/metadata
+Library/ShaderCache
 
 #Ignore files built by Visual Studio
 *.user
