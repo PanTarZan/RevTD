@@ -2,16 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 public class UniversalAIScript : MonoBehaviour {
-
+    
     [SerializeField] float attackDistance;
     [SerializeField] float damagePerHit;
     [SerializeField] GameObject currentTarget;
     [SerializeField] GameObject projectilePrefab;
-    public float timeBetweenAttacks = 5;
+    [SerializeField] bool isTower;
 
+    public float timeBetweenAttacks = 5;
     public GameObject selectedTarget;
     public float timeToAttack = 1;
 
@@ -19,16 +21,19 @@ public class UniversalAIScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        //to set movement in one place for now
+        if (GetComponent<NavMeshAgent>())
+        {
+            GetComponent<NavMeshAgent>().stoppingDistance = attackDistance - 1;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        selectedTarget = FindObjectOfType<GameMasterScript>().selectedTarget;
-        SetTargetForUnit();
+        ProcessTarget();
 	}
 
-    private void SetTargetForUnit()
+    private void ProcessTarget()
     {
         if (gameObject.tag == "Enemy")
         {
@@ -40,73 +45,72 @@ public class UniversalAIScript : MonoBehaviour {
         }
     }
 
-    private bool AttackClosestTarget()
-    {
-        timeToAttack -= Time.deltaTime;
-        var objectsWithinRange = Physics.OverlapSphere(transform.position, attackDistance);
-        foreach (var singleObject in objectsWithinRange)
-        {
-            if ((singleObject.tag == "Enemy" && gameObject.tag == "Player") || (singleObject.tag == "Player" && gameObject.tag == "Enemy"))
-            {
-                if (singleObject.gameObject.GetComponentInParent<HealthSystem>())
-                {
-                    currentTarget = singleObject.gameObject;
-                    if (GetComponent<AICharacterControl>())
-                    {
-                        GetComponent<AICharacterControl>().SetTarget(singleObject.transform);
-                    }
-                    if (timeToAttack <= 0)
-                    {
-                        AttackTarget();
-                    }
-                    return true;
-                }
-            }
-
-        }
-        return false;
-    }
-
-    private void AttackTarget()
-    {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
-        projectilePrefab.GetComponent<Projectile>().SetTarget(currentTarget);
-        timeToAttack = timeBetweenAttacks;
-    }
-
     private void SetTargetForPlayerUnits()
     {
-            if (selectedTarget)
-            {
-               if (!AttackClosestTarget())
-                {
-                    if (GetComponent<AICharacterControl>())
-                    {
-                        GetComponent<AICharacterControl>().SetTarget(selectedTarget.transform);
-                    }
-                }
-            }
-            else
-            {
-                AttackClosestTarget();
-            }
-        
+        selectedTarget = FindObjectOfType<GameMasterScript>().selectedTarget;
+        if (selectedTarget)
+        {
+            currentTarget = selectedTarget;
+            GoAndAttackTarget();
+        }
     }
 
     private void SetTargetForEnemyUnits()
     {
-            if (GameObject.FindGameObjectWithTag("Player"))
+        //find first available target
+        //TODO change to focus always on MainBasePrefab
+        if (isTower)
+        {
+            //attack closest enemy
+            var objectsWithinRange = Physics.OverlapSphere(transform.position, attackDistance);
+            foreach (var singleObject in objectsWithinRange)
             {
-                if (!AttackClosestTarget())
+                if (singleObject.tag == "Player")
                 {
-                    if (GetComponent<AICharacterControl>())
-                    {
-                        GetComponent<AICharacterControl>().SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
-                    }
+                    currentTarget = singleObject.gameObject;
+                    GoAndAttackTarget();
+                    break;
                 }
             }
-        
+        }
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            currentTarget = GameObject.FindGameObjectsWithTag("Player")[0];
+            GoAndAttackTarget();
+        }
     }
+
+    private void GoAndAttackTarget()
+    {
+        //countdown to reduce cooldown
+        timeToAttack -= Time.deltaTime;
+
+        //tower does not walk :D (this works only for infrantry)
+        if (GetComponent<AICharacterControl>())
+        {
+            GetComponent<AICharacterControl>().target = currentTarget.transform;
+        }
+        //target in range detector
+        var objectsWithinRange = Physics.OverlapSphere(transform.position, attackDistance);
+        foreach (var singleObject in objectsWithinRange)
+        {
+            if (singleObject.gameObject == currentTarget)
+            {
+                if (timeToAttack <= 0)
+                {
+                    AttackTarget();
+                }
+            }
+        }
+    }
+
+    private void AttackTarget()
+    {
+        var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectile.GetComponent<Projectile>().SetTarget(currentTarget);
+        timeToAttack = timeBetweenAttacks;
+    }
+
     public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, attackDistance);

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ReverseTD.unity
+- path: Assets/ExperimentalPlayground.unity
   isLoaded: 1
   isActive: 1

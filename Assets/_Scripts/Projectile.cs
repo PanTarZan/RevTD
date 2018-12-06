@@ -18,11 +18,11 @@ public class Projectile : MonoBehaviour {
 	void Update () {
         if (target)
         {
-            TravelToTarget();
+           TravelToTarget();
         }
         else
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
     }
 
@@ -40,8 +40,9 @@ public class Projectile : MonoBehaviour {
     public void TravelToTarget()
     {
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
-        if (Vector3.Distance(transform.position, target.transform.position) <= 0.1f)
+        transform.LookAt(target.transform);
+        transform.Translate(Vector3.forward * step);
+        if (Vector3.Distance(transform.position, target.transform.position) <= 0.3f)
         {
             DoDamage(damagePerHit);
         }

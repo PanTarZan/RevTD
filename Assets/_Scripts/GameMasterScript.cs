@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class GameMasterScript : MonoBehaviour {
 
-    [SerializeField] GameObject targetToRaycast;
+    [SerializeField] GameObject raycastingPlayerPrefab;
     [SerializeField] GameObject basePrefab;
     [SerializeField] int money;
 
@@ -52,14 +52,19 @@ public class GameMasterScript : MonoBehaviour {
 
     private void SelectTarget()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        //select enemy targets with rmb
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-           selectedTarget = hitFromCamera.collider.gameObject;
+            if (hitFromCamera.collider.gameObject.tag == "Enemy")
+            {
+                selectedTarget = hitFromCamera.collider.gameObject;
+            }
         }
     }
 
     private void BuildSelectedBuilding()
     {
+        // lpm for selecting and building
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(selectedBuilding, hitFromCamera.point, hitFromCamera.transform.rotation);
@@ -69,8 +74,8 @@ public class GameMasterScript : MonoBehaviour {
 
     private void RaycastFromPlayer()
     {
-        playerRay.origin = targetToRaycast.transform.position + Vector3.up;
-        playerRay.direction = targetToRaycast.transform.forward;
+        playerRay.origin = raycastingPlayerPrefab.transform.position + Vector3.up;
+        playerRay.direction = raycastingPlayerPrefab.transform.forward;
 
 
         if (Physics.Raycast(playerRay, out playerHitsObject, 5))
