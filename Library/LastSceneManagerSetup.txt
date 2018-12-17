@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ExperimentalPlayground.unity
+- path: Assets/My Stuff/_Scenes/ExperimentalPlayground.unity
   isLoaded: 1
   isActive: 1

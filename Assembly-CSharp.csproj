@@ -53,18 +53,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\CameraRTSMovement.cs" />
-     <Compile Include="Assets\_Scripts\FightModeTrigger.cs" />
-     <Compile Include="Assets\_Scripts\GameMasterScript.cs" />
-     <Compile Include="Assets\_Scripts\HealthDisplay.cs" />
-     <Compile Include="Assets\_Scripts\HealthSystem.cs" />
-     <Compile Include="Assets\_Scripts\MainBaseSpawner.cs" />
-     <Compile Include="Assets\_Scripts\Projectile.cs" />
-     <Compile Include="Assets\_Scripts\UniversalAIScript.cs" />
-     <Compile Include="Assets\RTS_Camera\Scripts\RTS_Camera.cs" />
-     <None Include="Assets\_Textures\GroundTexturesFromGaia\_Readme.txt" />
-     <None Include="Assets\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
-     <None Include="Assets\_Prefabs\Buildings\BuildingShed\BuildingShedInfo.txt" />
+     <Compile Include="Assets\My Stuff\_Scripts\CameraRTSMovement.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\FightModeTrigger.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\GameMasterScript.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\HealthDisplay.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\HealthSystem.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\Projectile.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\UiManagerAndSpawner.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\UniversalAIScript.cs" />
+     <Compile Include="Assets\My Stuff\Resources\_Data\PlayerUnits\Unit.cs" />
+     <Compile Include="Assets\My Stuff\Resources\_Data\Projectiles\ProjectileRocket.cs" />
+     <Compile Include="Assets\Other Stuff\RTS_Camera\Scripts\RTS_Camera.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\AutoCam.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\HandHeldCam.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\LookatTarget.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\PivotBasedCameraRig.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\ProtectCameraFromWallClip.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Cameras\Scripts\TargetFieldOfView.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\Scripts\AICharacterControl.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonCharacter.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\Joystick.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
+     <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+     <None Include="Assets\My Stuff\_Textures\GroundTexturesFromGaia\_Readme.txt" />
+     <None Include="Assets\Other Stuff\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
+     <None Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Other Stuff\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\My Stuff\_Prefabs\Buildings\BuildingShed\BuildingShedInfo.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>E:/Unity/ReverseTD/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
@@ -305,10 +332,6 @@
  <Reference Include="Boo.Lang">
  <HintPath>F:/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{83322237-355A-AF78-2D14-BE8AE0AC00C3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
