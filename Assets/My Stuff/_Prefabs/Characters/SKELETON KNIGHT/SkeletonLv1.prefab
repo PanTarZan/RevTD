@@ -2306,7 +2306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86db258c799f531498a88823c0846aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 25
   currentHealth: 0
   fillAmount: 0
 --- !u!114 &114220224543369178
@@ -2407,12 +2407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad371f8a765e2a47b58eb2e9546b352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 30
-  damagePerHit: 0.3
+  attackDistance: 10
   currentTarget: {fileID: 0}
   projectile: {fileID: 11400000, guid: 7e3e3a85926f23d439d820ba265f603d, type: 2}
-  projectilePrefab: {fileID: 1371716928673730, guid: 6d05515f4ab23e348a1a3d6b5283ba48,
-    type: 2}
   isTower: 0
   timeBetweenAttacks: 2
   selectedTarget: {fileID: 0}

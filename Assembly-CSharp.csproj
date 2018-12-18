@@ -91,7 +91,6 @@
      <None Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Other Stuff\Standard Assets\Cameras\CameraGuidelines.txt" />
-     <None Include="Assets\My Stuff\_Prefabs\Buildings\BuildingShed\BuildingShedInfo.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>E:/Unity/ReverseTD/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

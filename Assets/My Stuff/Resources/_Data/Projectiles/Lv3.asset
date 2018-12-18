@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec28e34e9dcef84485ba06a6b1554b2, type: 3}
+  m_Name: Lv3
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1371716928673730, guid: 0eb5a082b3b30844eb34a41b7ba481a8,
+    type: 2}
+  projectileDamage: 20

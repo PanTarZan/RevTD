@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec28e34e9dcef84485ba06a6b1554b2, type: 3}
   m_Name: Lv2
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1371716928673730, guid: 0eb5a082b3b30844eb34a41b7ba481a8,
+  projectilePrefab: {fileID: 1371716928673730, guid: 6d05515f4ab23e348a1a3d6b5283ba48,
     type: 2}
-  projectileDamage: 20
+  projectileDamage: 10

@@ -24,3 +24,8 @@ Library/ShaderCache
 obj/
 [Rr]elease*/
 _ReSharper*/
+.vs/ReverseTD/v15/Server/sqlite3/storage.ide-shm
+.vs/ReverseTD/v15/Server/sqlite3/storage.ide-wal
+Library/CurrentLayout.dwlt
+Library/assetDatabase3
+Library/expandedItems

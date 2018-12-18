@@ -8,11 +8,10 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class UniversalAIScript : MonoBehaviour {
     
     [SerializeField] float attackDistance;
-    [SerializeField] float damagePerHit;
     [SerializeField] GameObject currentTarget;
     [SerializeField] ProjectileRocket projectile;
 
-    public GameObject projectilePrefab;
+    GameObject projectilePrefab;
     [SerializeField] bool isTower;
 
     public float timeBetweenAttacks = 5;
