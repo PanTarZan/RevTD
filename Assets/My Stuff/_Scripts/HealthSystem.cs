@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour {
 
     [SerializeField] float startingHealth = 100;
+    [SerializeField] int moneyUponDeath;
+    GameMasterScript gamemaster;
 
     public float currentHealth;
     public float fillAmount;
@@ -12,7 +14,8 @@ public class HealthSystem : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentHealth = startingHealth;
-	}
+        gamemaster = FindObjectOfType<GameMasterScript>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,6 +23,7 @@ public class HealthSystem : MonoBehaviour {
         fillAmount = currentHealth / startingHealth;
         if (currentHealth <= 0)
         {
+            gamemaster.money += moneyUponDeath;
             Destroy(gameObject);
         }
 	}

@@ -9,8 +9,9 @@ using UnityEngine.Events;
 public class UiManagerAndSpawner : MonoBehaviour {
 
     [SerializeField] GameObject spawnLocation;
-    [SerializeField] public Unit selectedUnitPrefab;
+    [SerializeField] public Unit selectedUnit;
 
+    GameMasterScript gamemaster;
 
     [Header("UI Management Stuff")]
     [SerializeField] Transform queuePanel;
@@ -23,9 +24,8 @@ public class UiManagerAndSpawner : MonoBehaviour {
     // Use this for initialization
     void Start () {
         PopulateUnitButtonSelection();
-        
-
-	}
+        gamemaster = FindObjectOfType<GameMasterScript>();
+    }
 
     // Update is called once per frame
     void Update () {
@@ -53,31 +53,46 @@ public class UiManagerAndSpawner : MonoBehaviour {
 
     public void addToSpawnQueue()
     {
-        spawnQueue.Add(selectedUnitPrefab);
+        if(selectedUnit.GetFighterCost() <= gamemaster.money)
+        {
+            spawnQueue.Add(selectedUnit);
+            gamemaster.money -= selectedUnit.GetFighterCost();
+        }
+
+    }
+
+    public void removeFromSpawnQueue(GameObject button, Unit unitOnList)
+    {
+        Debug.Log("Removing");
+        spawnQueue.Remove(unitOnList);
+        gamemaster.money += unitOnList.GetFighterCost();
+        Destroy(button);
     }
 
     private void DisplayCurrentSpawnQueue()
     {
-            //Instantiate(prefab.GetComponent<Image>(), queuePanel);
-        if (spawnQueue.Count == 0)
+        if (queuePanel.childCount == spawnQueue.Count)
         {
-            int x = queuePanel.childCount;
-            if (x == 0)
-            {
-                return;
-            }
-            for (int i =0; i<=x; i++)
-            {
-                Destroy(queuePanel.GetChild(0).gameObject);
-            }
             return;
         }
-        if (queuePanel.childCount != spawnQueue.Count)
+        else
         {
-            var configuredImage = imagePrefab.GetComponent<Image>();
-            configuredImage.sprite = selectedUnitPrefab.GetFighterImage();
-            Instantiate(configuredImage, queuePanel);
-        }
+                foreach (Transform t in queuePanel)
+                {
+                    Destroy(t.gameObject);
+                }
+                foreach (Unit item in spawnQueue)
+                {
+                    var bttButton = Instantiate(buttonPrefab, queuePanel);
+                    var bttImage = bttButton.GetComponent<Image>();
+                    bttImage.sprite = item.GetFighterImage();
+                    bttImage.type = Image.Type.Simple;
+                    bttImage.preserveAspect = true;
+
+                    var events = bttButton.GetComponentInChildren<Button>();
+                    events.onClick.AddListener(delegate { removeFromSpawnQueue(bttButton, item); });
+                }
+         }
     }
 
     private void PopulateUnitButtonSelection()

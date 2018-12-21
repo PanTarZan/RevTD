@@ -19,7 +19,7 @@ public class Unit : ScriptableObject {
 
     public void SelectPrefab()
     {
-        FindObjectOfType<UiManagerAndSpawner>().selectedUnitPrefab = this;
+        FindObjectOfType<UiManagerAndSpawner>().selectedUnit = this;
     }
 
     public GameObject GetFighterPrefab()
@@ -30,5 +30,9 @@ public class Unit : ScriptableObject {
     public Sprite GetFighterImage()
     {
         return unitImage;
+    }
+    public int GetFighterCost()
+    {
+        return unitCost;
     }
 }

@@ -260,7 +260,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   projectile: {fileID: 11400000, guid: 36ee4203901be5043b4973319f6c6dd1, type: 2}
   isTower: 1
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 1.5
   selectedTarget: {fileID: 0}
 --- !u!114 &114191746811135522
 MonoBehaviour:
