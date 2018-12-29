@@ -40,20 +40,15 @@ public class GameMasterScript : MonoBehaviour {
         {
             if (hitFromCamera.collider.gameObject.tag == "Enemy")
             {
-                SelectTarget();
-            }
-        }
-    }
+                //consider onhover
+                //hitFromCamera.collider.GetComponentInChildren<UnitSelector>().SelectionMarkerOnHover();
 
-    private void SelectTarget()
-    {
-        //select enemy targets with rmb
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (hitFromCamera.collider.gameObject.tag == "Enemy")
-            {
-                selectedTarget = hitFromCamera.collider.gameObject;
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    selectedTarget = hitFromCamera.collider.gameObject;
+                }
             }
         }
     }
+    
 }

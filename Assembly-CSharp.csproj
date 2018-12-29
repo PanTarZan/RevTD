@@ -60,6 +60,7 @@
      <Compile Include="Assets\My Stuff\_Scripts\HealthSystem.cs" />
      <Compile Include="Assets\My Stuff\_Scripts\Projectile.cs" />
      <Compile Include="Assets\My Stuff\_Scripts\UiManagerAndSpawner.cs" />
+     <Compile Include="Assets\My Stuff\_Scripts\UnitSelector.cs" />
      <Compile Include="Assets\My Stuff\_Scripts\UniversalAIScript.cs" />
      <Compile Include="Assets\My Stuff\Resources\_Data\PlayerUnits\Unit.cs" />
      <Compile Include="Assets\My Stuff\Resources\_Data\Projectiles\ProjectileRocket.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <None Include="Assets\My Stuff\_Textures\GroundTexturesFromGaia\_Readme.txt" />
      <None Include="Assets\Other Stuff\AurynSky\Rockets Missiles and Bombs\READ ME.txt" />
+     <None Include="Assets\read me.txt" />
      <None Include="Assets\Other Stuff\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Other Stuff\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Other Stuff\Standard Assets\Cameras\CameraGuidelines.txt" />
