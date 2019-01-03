@@ -57,6 +57,7 @@ namespace RTS_Cam
 
         #region MapLimits
 
+        public GameObject terrain;
         public bool limitMap = true;
         public float limitX = 50f; //x limit of map
         public float limitY = 50f; //z limit of map

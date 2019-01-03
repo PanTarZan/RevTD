@@ -2294,7 +2294,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.2
+  m_GroundCheckDistance: 0.5
 --- !u!114 &114115837737641346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2307,6 +2307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 25
+  moneyUponDeath: 0
   currentHealth: 0
   fillAmount: 0
 --- !u!114 &114220224543369178
