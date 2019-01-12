@@ -4,6 +4,7 @@
 
 Library/metadata
 Library/ShaderCache
+Library/PlayerDataCache/
 
 #Ignore files built by Visual Studio
 *.user

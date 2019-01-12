@@ -1,0 +1,41 @@
+#Ignore files built by Unity
+
+*.meta
+
+<<<<<<< HEAD
+Library/metadata/
+Library/ShaderCache/
+Library/PlayerDataCache/
+Library/PackageCache/
+Library/StateCache/
+Library/ShaderCache/
+Library/webgl_cache/
+=======
+Library/metadata
+Library/ShaderCache
+
+>>>>>>> parent of 85c34e4... cleanup and fb integrations attempt no.1
+#Ignore files built by Visual Studio
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+.vs/ReverseTD/v15/Server/sqlite3/storage.ide-shm
+.vs/ReverseTD/v15/Server/sqlite3/storage.ide-wal
+Library/CurrentLayout.dwlt
+Library/assetDatabase3
+Library/expandedItems
